@@ -56,20 +56,20 @@
     justify-content: center;
   }
   .gallery-container {
-    width: 100%; /* Ширина 100% для мобильных устройств */
-    overflow-x: auto; /* Включаем горизонтальную прокрутку */
-    padding: 10px 0; /* Добавляем отступы */
+    width: 100%; 
+    overflow-x: auto; 
+    padding: 10px 0; 
   }
 
   .cards-container {
-    display: inline-flex; /* Используем inline-flex для горизонтального расположения */
-    flex-wrap: nowrap; /* Запрещаем перенос, чтобы карточки располагались в одну линию */
-    gap: 10px; /* Пробел между карточками */
+    display: inline-flex; 
+    flex-wrap: nowrap; 
+    gap: 10px; 
   }
 
   .gallery-card {
-    min-width: 150px; /* Минимальная ширина карточки на мобильных */
-    flex: 0 0 auto; /* Запрещаем уменьшение карточек */
+    min-width: 150px; 
+    flex: 0 0 auto; 
   }
 }
 
