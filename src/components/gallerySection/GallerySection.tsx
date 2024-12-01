@@ -21,7 +21,6 @@ const GallerySection: React.FC = () => {
 
   const updateCount = useCallback(() => {
     const width = window.innerWidth;
-    console.log("updCount");
     if (width < 800) {
       setLimit(1);
     } else if (width < 1300) {
@@ -40,7 +39,6 @@ const GallerySection: React.FC = () => {
   });
 
   useEffect(() => {
-    console.log("ya pidor");
 
     fetchArtworks(page, limit)
       .then((res) => {
