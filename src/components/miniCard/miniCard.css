@@ -6,7 +6,6 @@
     font-family: Inter;
     
   }
-  
   .mini-card {
     box-sizing: border-box;
     display: flex;
@@ -18,15 +17,11 @@
     position:relative;
 
   }
-  
-  
   .image {
     width: 80px;
     height: 80px;
   }
-  
   .info {
-    
     overflow: hidden;
     padding: 0 16px;
     width: 100%;
@@ -45,7 +40,6 @@
     font-weight: 400;
 
   }
-  
   p {
     font-family: Inter;
     font-size: 15.35px;
@@ -61,3 +55,21 @@
     margin-left: auto;
     cursor: pointer;
   }
+  @media (max-width: 768px) {
+    .mini-card-wrapper {
+        width: 350px;
+        height: auto;
+    }
+
+    .mini-card {
+        padding: 15px 10px;
+        max-width: 100%;
+        max-height: auto;
+    }
+
+    .image {
+        width: 70px;
+        height: 70px;
+    }
+
+}
