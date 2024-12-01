@@ -3,7 +3,6 @@
   height: 514px;
   gap: 0px;
   border: 1px;
-  opacity: 0px;
 }
 
 .image-container,
@@ -11,7 +10,6 @@
   width: 387px;
   height: 444px;
   gap: 0px;
-  opacity: 0px;
 }
 .info-overlay {
   display: flex;
