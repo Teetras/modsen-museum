@@ -1,0 +1,67 @@
+.mini-card-wrapper{
+    width: 416px;
+    height: 130px;
+    padding: 16px 0px 0px 0px;
+    gap: 16px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    font-family: Inter;
+    
+  }
+  
+  .mini-card {
+    box-sizing: border-box;
+    display: flex;
+    max-width: 416px;
+    max-height: 130px;
+    background-color: #ffffff;
+    align-items: center;
+    padding: 25px 13px;
+    position:relative;
+
+  }
+  
+  
+  
+  .image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .info {
+    
+    overflow: hidden;
+    padding: 0 16px;
+    width: 100%;
+  }
+  
+  h4 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26.32px;
+    letter-spacing: -0.03em;
+  }
+  
+  .author {
+    font-size: 14px;
+    color: orange;
+    font-weight: 400;
+
+  }
+  
+  p {
+    font-family: Inter;
+    font-size: 15.35px;
+    font-weight: 700;
+    line-height: 26.32px;
+    letter-spacing: -0.01em;
+    text-align: left;
+  }
+  
+  .bookmark-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    cursor: pointer;
+  }
+ 

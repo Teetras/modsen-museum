@@ -1,0 +1,28 @@
+.other-works{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 0;
+}
+.mini-cards-box{
+    width: 1280px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+  @media screen and (max-width: 1280px) {
+    .mini-cards-box{
+        width: 870px;
+        align-items: center;
+        
+    }
+}
+@media screen and (max-width: 876px) {
+    .mini-cards-box{
+        width: auto;
+        align-items: center;
+        
+    }
+}

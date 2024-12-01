@@ -1,0 +1,45 @@
+  .footer{
+    height: 127px;
+    background: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    width: 1280px;
+    height: 63px;
+    padding: 1% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: auto;
+    margin-right: 2%;
+  }
+  
+  
+  @media (max-width: 480px) {
+      .footer {
+        height: auto;
+      }
+    
+      .container {
+        width: 100%;
+        height: auto;
+        padding: 1% 5%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    
+      .button {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+  }
+  

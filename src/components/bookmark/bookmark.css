@@ -1,0 +1,20 @@
+.bookmark {
+    display: flex;
+    padding: 17.54px;
+    border-radius: 50px;
+    width: 24px;
+    height: 24px;
+}
+
+.unFav {
+    background-color: rgba(249, 249, 249, 1);
+}
+
+.isFav {
+    background-color: rgba(251, 215, 178, 0.3);
+
+}
+
+.image:hover {
+    opacity: 0.5;
+}

@@ -1,0 +1,39 @@
+ 
+  .list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    padding-inline-start: 4px;
+
+  }
+  
+  .element {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    color: #f0f0f0;
+    text-decoration: none;
+  }
+  
+  .element img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  .element a {
+    color: #f0f0f0;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-decoration: none;
+  }
+  
+  .element a:hover {
+    color: #ffcc00;
+  }
+  @media (max-width: 480px) {
+
+
+  }

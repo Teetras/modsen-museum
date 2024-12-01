@@ -1,0 +1,22 @@
+.title-box {
+    max-width: 308px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(224, 164, 73, 1);
+    align-self: center;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+}

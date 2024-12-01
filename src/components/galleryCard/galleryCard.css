@@ -1,0 +1,28 @@
+.gallery-card {
+  width: 387px;
+  height: 514px;
+  gap: 0px;
+  border: 1px;
+  opacity: 0px;
+}
+
+.image-container,
+.image-gallery {
+  width: 387px;
+  height: 444px;
+  gap: 0px;
+  opacity: 0px;
+}
+.info-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  width: 334px;
+  height: 132px;
+  padding: 20px;
+  margin: auto;
+  margin-top: -66px;
+  background: #ffffff;
+}
