@@ -16,7 +16,7 @@ export default function DetailInfo() {
           setDataOne(res.data as unknown as Artwork);
         })
         .catch((error) => {
-          console.error("Ошибка загрузки произведения:", error);
+          console.error("Error loading artwork:", error);
         });
     }
   }, []);

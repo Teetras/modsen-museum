@@ -8,6 +8,7 @@
   position: relative;
   margin-right: 10%;
 
+
 }
 .image-deteil  {
   
@@ -98,23 +99,43 @@
         width: 350px;
         height: auto;
       }
+    
       .img-content {
         margin-right: 8%;
       
       }
 }
-@media (max-width: 890px) {
-    .fullcard {
-        padding:5% 0;
-       max-width: 400px;
-      flex-direction: column; 
-      align-items: center;
+@media screen and (max-width: 890px) {
+  .fullcard {
+    padding: 5% 0;
    
-    }
-    .img-content {margin: 0;}
-
-    .owerview {
-      width: 100%; 
-      gap: 0;
-    }
+    flex-direction: column; 
+    align-items: center;
   }
+  
+  .img-content {
+    margin: 0;
+    width: 350px;
+
+  }
+  .image-deteil {
+    width: 350px;
+
+  }
+  .info-content {
+    padding: 0 10px; 
+    width: 350px;
+    gap: 0;
+  }
+  .own-info h2,
+  .author-deil5
+  .age {
+    padding-left: 0px; 
+    padding-right: 0px;
+  }
+  .owerview {
+    width: 100%; 
+    height: 100%;
+    gap: 0;
+  }
+}

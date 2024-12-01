@@ -1,7 +1,6 @@
 .mini-card-wrapper{
     width: 416px;
     height: 130px;
-    padding: 16px;
     gap: 16px;
     border: 1px;
     font-family: Inter;
@@ -19,7 +18,6 @@
     position:relative;
 
   }
-  
   
   
   .image {

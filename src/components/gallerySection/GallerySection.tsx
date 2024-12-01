@@ -17,30 +17,10 @@ const GallerySection: React.FC = () => {
     current_page: 1,
     next_url: null,
   });
-  const [limit, setLimit] = useState(3);
-
-  const updateCount = useCallback(() => {
-    const width = window.innerWidth;
-    if (width < 800) {
-      setLimit(1);
-    } else if (width < 1300) {
-      setLimit(2);
-    } else {
-      setLimit(3);
-    }
-  }, []);
-  useEffect(() => {
-    updateCount();
-    window.addEventListener("resize", updateCount);
-
-    return () => {
-      window.removeEventListener("resize", updateCount);
-    };
-  });
 
   useEffect(() => {
 
-    fetchArtworks(page, limit)
+    fetchArtworks(page, 3)
       .then((res) => {
         setData(res.data);
         setPagination(res.pagination);
@@ -48,22 +28,24 @@ const GallerySection: React.FC = () => {
       .catch((e) => {
         console.error(e);
       });
-  }, [page, limit]);
+  }, [page]);
 
   return (
     <div className="gallery-content">
       <Title text="Topics for you" title="Our special gallery" />
 
       <div className="gallery-container">
-        <div className="cards-container">
+       
+        <div className="cards-container mobile">
           {data.length ? (
             data.map((art) => <GalleryArtCard key={art.id} art={art} />)
           ) : (
             <p>No artworks found.</p>
           )}
         </div>
-        <PaginationComponent pagination={pagination} setPage={setPage} />{" "}
       </div>
+      <PaginationComponent pagination={pagination} setPage={setPage} />
+
     </div>
   );
 };

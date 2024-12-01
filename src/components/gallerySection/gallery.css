@@ -55,6 +55,21 @@
   .button-pagination {
     justify-content: center;
   }
+  .gallery-container {
+    width: 100%; /* Ширина 100% для мобильных устройств */
+    overflow-x: auto; /* Включаем горизонтальную прокрутку */
+    padding: 10px 0; /* Добавляем отступы */
+  }
 
+  .cards-container {
+    display: inline-flex; /* Используем inline-flex для горизонтального расположения */
+    flex-wrap: nowrap; /* Запрещаем перенос, чтобы карточки располагались в одну линию */
+    gap: 10px; /* Пробел между карточками */
+  }
+
+  .gallery-card {
+    min-width: 150px; /* Минимальная ширина карточки на мобильных */
+    flex: 0 0 auto; /* Запрещаем уменьшение карточек */
+  }
 }
 
