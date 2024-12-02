@@ -49,7 +49,7 @@ describe("searchUtils", () => {
       expect(setErrorMsg).toHaveBeenCalledWith("");
       expect(fechArtByText).toHaveBeenCalledWith(debouncedQuery);
       expect(setItems).toHaveBeenCalledWith(mockData);
-      expect(setFilteredItems).toHaveBeenCalled(); // This will depend on your implementation of updateFilteredItems
+      expect(setFilteredItems).toHaveBeenCalled();
     });
 
     it("should handle errors during fetch", async () => {

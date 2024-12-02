@@ -8,7 +8,7 @@ import Title from "../../components/title/Title";
 import { useFavorites } from "../../context/FavoritesContext";
 
 export default function Favorites() {
-  const { favorites, getFavorites } = useFavorites(); // Получаем избранные из контекста
+  const { favorites, getFavorites } = useFavorites();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
