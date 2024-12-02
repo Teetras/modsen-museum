@@ -35,14 +35,13 @@ export const checkFileExists = async (url: string): Promise<boolean> => {
   try {
     const response = await fetch(url, { method: "GET" });
     if (response.ok) {
-      console.log("Файл существует:", url);
       return true;
     } else {
-      console.log("Файл не найден:", url);
+      console.log("File not found:", url);
       return false;
     }
   } catch (error) {
-    console.log("Ошибка при проверке файла:", error);
+    console.log("Error checking the file:", error);
     return false;
   }
 };
