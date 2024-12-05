@@ -70,3 +70,9 @@ export interface PaginationButtonProps {
     | "time"
     | undefined;
 }
+export interface FavoritesContextType {
+  favorites: Artwork[];
+  addFavorite: (art: Artwork) => void;
+  removeFavorite: (artId: number) => void;
+  isArtFavorite: (art: Artwork) => boolean;
+}

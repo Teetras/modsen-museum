@@ -7,17 +7,12 @@ import Title from "../../components/title/Title";
 import { useFavorites } from "../../context/FavoritesContext";
 
 export default function Favorites() {
-  const { favorites, getFavorites } = useFavorites();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { favorites } = useFavorites();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchFavorites = () => {
-      getFavorites();
-      setIsLoading(false);
-    };
-
-    fetchFavorites();
-  }, [getFavorites]);
+    setIsLoading(false);
+  }, [favorites]);
 
   if (isLoading) {
     return <LoadingIndicator />;
@@ -38,7 +33,7 @@ export default function Favorites() {
         <Title text="Saved by you" title="Your favorites list" />
         <div className="mini-cards-box">
           {favorites.length === 0 ? (
-            <p>У вас нет любимых произведений искусства.</p>
+            <p>You have no favorite artworks.</p>
           ) : (
             favorites.map((art) => <MiniCard key={art.id} art={art} />)
           )}

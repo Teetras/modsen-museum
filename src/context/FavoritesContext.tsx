@@ -1,37 +1,22 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { Artwork } from "../types/interfaces";
-import { LOCAL_STORAGE_KEY } from "../constants/constant";
-
-interface FavoritesContextType {
-  favorites: Artwork[];
-  addFavorite: (art: Artwork) => void;
-  removeFavorite: (artId: number) => void;
-  isArtFavorite: (art: Artwork) => boolean;
-  getFavorites: () => void;
-}
+import { Artwork, FavoritesContextType } from "../types/interfaces";
+import LocalStorageUtils from "../storage/localStorageUtils";
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(
   undefined,
 );
-export const getFavorites = (): Artwork[] => {
-  return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]");
-};
 
 export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [favorites, setFavorites] = useState<Artwork[]>(
-    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || "[]"),
+    LocalStorageUtils.getFavorites(),
   );
-
-  const saveFavorites = (favorites: Artwork[]) => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(favorites));
-  };
 
   const addFavorite = (art: Artwork) => {
     setFavorites((prev) => {
       const updatedFavorites = [...prev, art];
-      saveFavorites(updatedFavorites);
+      LocalStorageUtils.saveFavorites(updatedFavorites);
       return updatedFavorites;
     });
   };
@@ -39,7 +24,7 @@ export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({
   const removeFavorite = (artId: number) => {
     setFavorites((prev) => {
       const updatedFavorites = prev.filter((art) => art.id !== artId);
-      saveFavorites(updatedFavorites);
+      LocalStorageUtils.saveFavorites(updatedFavorites);
       return updatedFavorites;
     });
   };
@@ -55,7 +40,6 @@ export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({
         addFavorite,
         removeFavorite,
         isArtFavorite,
-        getFavorites,
       }}
     >
       {children}
