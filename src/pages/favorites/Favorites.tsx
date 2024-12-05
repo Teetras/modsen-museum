@@ -17,7 +17,7 @@ export default function Favorites() {
     };
 
     fetchFavorites();
-  });
+  }, [getFavorites]);
 
   if (isLoading) {
     return <LoadingIndicator />;

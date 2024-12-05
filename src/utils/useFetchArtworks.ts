@@ -12,14 +12,17 @@ const useFetchArtworks = (page: number, limit: number) => {
     current_page: 1,
     next_url: null,
   });
-
+  const [isLoading, setIsLoading] = useState(true);
   const fetchData = useCallback(async () => {
+    setIsLoading(true);
     try {
       const res = await fetchArtworks(page, limit);
       setData(res.data);
       setPagination(res.pagination);
     } catch (e) {
       console.error(e);
+    } finally {
+      setIsLoading(false);
     }
   }, [page, limit]);
 
@@ -27,7 +30,7 @@ const useFetchArtworks = (page: number, limit: number) => {
     fetchData();
   }, [fetchData]);
 
-  return { data, pagination };
+  return { data, pagination, isLoading };
 };
 
 export default useFetchArtworks;

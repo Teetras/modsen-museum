@@ -3,7 +3,7 @@ import defaultImageUrl from "../assets/Group 2.svg";
 import { checkFileExists } from "./api";
 
 const useArtworkImage = (artId: string | undefined) => {
-  const [imgUrl, setImgUrl] = useState<string>(defaultImageUrl); // Изменено на string
+  const [imgUrl, setImgUrl] = useState<string>(defaultImageUrl);
 
   useEffect(() => {
     if (artId) {

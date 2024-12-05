@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Artwork } from "../../types/interfaces";
 import Bookmark from "../bookmark/ButtonFavorite";
+
 import "./artworkDetails.css";
 import useArtworkImage from "../../utils/useArtworkImage";
 import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
@@ -41,7 +42,7 @@ const ArtworkDetails: React.FC<{ art: Artwork }> = ({ art }) => {
       <section className="info-content">
         <header className="own-info">
           <h2>{art.title || "Title of Artwork missing"}</h2>
-          <p className="author-deil">
+          <p className="author-detail-info">
             {art.artist_title || "Author Name missing"}
           </p>
           <p className="age">
@@ -56,7 +57,7 @@ const ArtworkDetails: React.FC<{ art: Artwork }> = ({ art }) => {
               {art.place_of_origin || "Place of Origin missing"}
             </p>
             <p>
-              <span>Dimensions: </span>
+              <span>Dimensions Sheet: </span>
               {art.dimensions || "Dimensions missing"}
             </p>
             <p>

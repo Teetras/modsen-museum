@@ -1,6 +1,7 @@
 import Home from "../pages/home/Home";
 import Art from "../pages/detailinfo/DetailInfo";
 import Favorites from "../pages/favorites/Favorites";
+import NotFound from "../pages/notFound/NotFound";
 
 export const LOCAL_STORAGE_KEY = "favorites";
 export const MIN_ARTWORK_ID = 1;
@@ -11,6 +12,7 @@ export const routes = [
   { path: "/", element: <Home /> },
   { path: "/art/:id", element: <Art /> },
   { path: "/favorites", element: <Favorites /> },
+  { path: "*", element: <NotFound /> },
 ];
 export const DEFAULT_TEXTS = {
   title: "Title of Artwork missing",

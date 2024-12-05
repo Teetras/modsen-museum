@@ -5,10 +5,11 @@ import GalleryArtCard from "../galleryCard/GalleryCard";
 import "./gallery.css";
 import PaginationComponent from "../pagination/PaginationComponent";
 import useFetchArtworks from "../../utils/useFetchArtworks";
+import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 
 const GallerySection: React.FC = () => {
   const [page, setPage] = useState(1);
-  const { data, pagination } = useFetchArtworks(page, 3);
+  const { data, pagination, isLoading } = useFetchArtworks(page, 3);
 
   const renderedArtworks = data.length ? (
     data.map((art) => <GalleryArtCard key={art.id} art={art} />)
@@ -21,7 +22,11 @@ const GallerySection: React.FC = () => {
       <Title text="Topics for you" title="Our special gallery" />
 
       <div className="gallery-container">
-        <div className="cards-container mobile">{renderedArtworks}</div>
+        {isLoading ? (
+          <LoadingIndicator />
+        ) : (
+          <div className="cards-container mobile">{renderedArtworks}</div>
+        )}
       </div>
       <PaginationComponent pagination={pagination} setPage={setPage} />
     </div>
