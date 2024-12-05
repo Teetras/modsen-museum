@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Bookmark from "./ButtonFavorite";
-import { Artwork } from "../../constants/interfaces";
-import { useFavorites } from "../../context/FavoritesContext";
+import { Artwork } from "../types/interfaces";
+import Bookmark from "../components/bookmark/ButtonFavorite";
+import { useFavorites } from "../context/FavoritesContext";
 
 jest.mock("../../context/FavoritesContext", () => ({
   useFavorites: jest.fn(),

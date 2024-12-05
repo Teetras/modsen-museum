@@ -1,13 +1,13 @@
+import { fechArtByText } from "../utils/api";
+import { searchSchema } from "../constants/validation";
+
+import { sortArray } from "../utils/sortUtil";
+import * as yup from "yup";
 import {
   fetchItems,
   updateFilteredItems,
   validateSearchQuery,
-} from "./searchUtils";
-import { fechArtByText } from "../../utils/api";
-import { searchSchema } from "../../constants/validation";
-
-import { sortArray } from "../../utils/sortUtil";
-import * as yup from "yup";
+} from "../utils/searchUtils";
 
 jest.mock("../../utils/api", () => ({
   fechArtByText: jest.fn(),

@@ -1,25 +1,29 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./navigation.css";
 import fav from "../../assets/bookmark.svg";
 import home from "../../assets/home.svg";
 
 export default function Navigation() {
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const { pathname } = useLocation();
+  const isHomePage = pathname === "/";
 
   return (
     <nav className="navigation">
       <ul className="list">
         {!isHomePage && (
           <li className="element">
-            <img src={home} alt="Home" />
-            <a href="/">Home</a>
+            <Link to="/">
+              <img src={home} alt="Home" />
+              Home
+            </Link>
           </li>
         )}
         <li className="element">
-          <img src={fav} alt="Your favorites" />
-          <a href="/favorites">Your favorites</a>
+          <Link to="/favorites">
+            <img src={fav} alt="Your favorites" />
+            Your favorites
+          </Link>
         </li>
       </ul>
     </nav>

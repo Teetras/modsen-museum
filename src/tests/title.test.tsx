@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Title from "./Title";
+import Title from "../components/title/Title";
 
 describe("Title component", () => {
   it("should render the title when title prop is provided", () => {

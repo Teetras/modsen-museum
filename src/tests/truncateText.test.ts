@@ -1,4 +1,4 @@
-import { truncateText } from "./textUtils";
+import { truncateText } from "../utils/textUtils";
 
 describe("truncateText", () => {
   it("should return fallback if text is undefined", () => {

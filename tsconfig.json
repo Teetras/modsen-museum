@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+  
     "lib": [
       "dom",
       "dom.iterable",
@@ -19,6 +20,18 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+
+    // "paths": {
+
+    //   "@assets/*": ["./src/assets//*"],
+    //   "@components/*": ["./src/components/*"],
+    //   "@constants/*": ["./src/constants/*"],
+    //   "@context/*": ["./src/context/*"],
+    //   "@pages/*": ["./src/pages/*"],
+    //   "@tests/*": ["./src/tests/*"],
+    //   "@types/*": ["./src/types/*"],
+    //   "@utils/*": ["./src/utils/*"]
+    // },
   },
   "devDependencies": {
     "@eslint/js": "^9.10.0",
@@ -30,5 +43,6 @@
   },
   "include": [
     "src"
-  ]
+  ],
+
 }

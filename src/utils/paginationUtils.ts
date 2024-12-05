@@ -17,3 +17,10 @@ export const calculatePaginationList = (
 
   return Array.from({ length: 4 }, (_, index) => start + index);
 };
+export const nextPage = (currentPage: number, totalPages: number): number => {
+  return currentPage < totalPages ? currentPage + 1 : currentPage;
+};
+
+export const prevPage = (currentPage: number): number => {
+  return currentPage > 1 ? currentPage - 1 : currentPage;
+};

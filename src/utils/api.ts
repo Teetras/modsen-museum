@@ -1,4 +1,4 @@
-import { ResponseApi } from "../constants/interfaces";
+import { ResponseApi } from "../types/interfaces";
 
 export const fetchArtworks = async (
   page: number = 1,

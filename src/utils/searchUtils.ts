@@ -1,7 +1,8 @@
-import { fechArtByText } from "../../utils/api";
-import { sortArray } from "../../utils/sortUtil";
-import { searchSchema } from "../../constants/validation";
 import * as yup from "yup";
+import { fechArtByText } from "./api";
+import { sortArray } from "./sortUtil";
+import { searchSchema } from "../constants/validation";
+import { Artwork } from "../types/interfaces";
 
 export const fetchItems = async (
   debouncedQuery: string,
@@ -41,4 +42,36 @@ export const validateSearchQuery = async (query: string) => {
       throw new Error("An unexpected error occurred.");
     }
   }
+};
+export const handleSearch = async (
+  debouncedQuery: string,
+  sortField: string,
+  setItems: React.Dispatch<React.SetStateAction<Artwork[]>>,
+  setErrorMsg: React.Dispatch<React.SetStateAction<string>>,
+  setFilteredItems: React.Dispatch<React.SetStateAction<Artwork[]>>,
+) => {
+  try {
+    await validateSearchQuery(debouncedQuery);
+    setErrorMsg("");
+    await fetchItems(
+      debouncedQuery,
+      setItems,
+      setErrorMsg,
+      sortField,
+      setFilteredItems,
+    );
+  } catch (error) {
+    setFilteredItems([]);
+    setErrorMsg(
+      error instanceof Error ? error.message : "An unexpected error occurred.",
+    );
+  }
+};
+
+export const updateFilteredItemsList = (
+  items: Artwork[],
+  sortField: string,
+  setFilteredItems: React.Dispatch<React.SetStateAction<Artwork[]>>,
+) => {
+  updateFilteredItems(items, sortField, setFilteredItems);
 };

@@ -1,41 +1,45 @@
-import React, { useEffect, useState } from "react";
-import { Artwork } from "../../constants/interfaces";
-import defaultImageUrl from "../../assets/Group 2.svg";
-import { checkFileExists } from "../../utils/api";
+import React, { useState, useEffect } from "react";
+import { Artwork } from "../../types/interfaces";
 import Bookmark from "../bookmark/ButtonFavorite";
 import "./artworkDetails.css";
+import useArtworkImage from "../../utils/useArtworkImage";
+import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
+
 const ArtworkDetails: React.FC<{ art: Artwork }> = ({ art }) => {
-  const [imgUrl, setImgUrl] = useState<any>(null);
+  const imgUrl = useArtworkImage(art?.image_id);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    if (art) {
-      const fetchImage = async () => {
-        const imageUrl = `https://www.artic.edu/iiif/2/${art.image_id}/full/400,/0/default.jpg`;
-        const exists = await checkFileExists(imageUrl);
+    const img = new Image();
+    img.src = imgUrl;
 
-        if (exists) {
-          setImgUrl(imageUrl);
-        } else {
-          setImgUrl(defaultImageUrl);
-        }
-      };
+    img.onload = () => {
+      setLoading(false);
+    };
 
-      fetchImage();
-    }
-  }, []);
+    img.onerror = () => {
+      setLoading(false);
+    };
+  }, [imgUrl]);
+
   return (
-    <div className="fullcard">
+    <article className="fullcard">
       <div className="img-content">
-        <img
-          className="image-deteil"
-          src={imgUrl}
-          alt={art.title || "Image of Artwork missing"}
-        />
+        {loading ? (
+          <LoadingIndicator />
+        ) : (
+          <img
+            className="image-detail"
+            src={imgUrl}
+            alt={art.title || "Image of Artwork missing"}
+          />
+        )}
         <div className="bookmark-detail">
           <Bookmark art={art} />
         </div>
       </div>
-      <div className="info-content">
-        <div className="own-info">
+      <section className="info-content">
+        <header className="own-info">
           <h2>{art.title || "Title of Artwork missing"}</h2>
           <p className="author-deil">
             {art.artist_title || "Author Name missing"}
@@ -43,33 +47,32 @@ const ArtworkDetails: React.FC<{ art: Artwork }> = ({ art }) => {
           <p className="age">
             {art.date_display || "Year of Creation missing"}
           </p>
-        </div>
-        <div className="owerview">
+        </header>
+        <section className="overview">
           <h2>Overview</h2>
           <div className="other-info">
             <p>
-              <span>Artist nacionality: </span>
+              <span>Artist nationality: </span>
               {art.place_of_origin || "Place of Origin missing"}
             </p>
             <p>
-              <span>Dimensions: Sheet: </span>{" "}
-              {art.dimensions || "Place of Origin missing"}
+              <span>Dimensions: </span>
+              {art.dimensions || "Dimensions missing"}
             </p>
             <p>
-              <span>Credit Line: </span>{" "}
-              {art.credit_line || "Place of Origin missing"}
+              <span>Credit Line: </span>
+              {art.credit_line || "Credit Line missing"}
             </p>
             <p>
               <span>Repository: </span>
-              {art.gallery_title ||
-                art.place_of_origin ||
-                "Place of Origin missing"}
+              {art.gallery_title || art.place_of_origin || "Repository missing"}
             </p>
             <p>{art.is_on_view ? "Public" : "Private"}</p>
           </div>
-        </div>
-      </div>
-    </div>
+        </section>
+      </section>
+    </article>
   );
 };
+
 export default ArtworkDetails;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import LoadingIndicator from "../../components/loadingIndicator/LoadingIndicator";
 import MiniCard from "../../components/miniCard/MiniCard";
 import bookmark from "../../assets/Vector.svg";

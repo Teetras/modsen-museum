@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchArtById } from "../../utils/api";
 import "./detailInfo.css";
 import ArtworkDetails from "../../components/artworkDetails/ArtworkDetails";
-import { Artwork } from "../../constants/interfaces";
+import { Artwork } from "../../types/interfaces";
 
 export default function DetailInfo() {
   const [dataOne, setDataOne] = useState<Artwork>();

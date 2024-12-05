@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Title from "../title/Title";
-import { Artwork } from "../../constants/interfaces";
+import { Artwork } from "../../types/interfaces";
 import { fetchArtworks } from "../../utils/api";
 import MiniCard from "../miniCard/MiniCard";
 import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 import "./otherWorks.css";
+import {
+  ARTWORK_COUNT,
+  MAX_ARTWORK_ID,
+  MIN_ARTWORK_ID,
+} from "../../constants/constant";
+import { getRandomNumber } from "../../utils/randomUtils";
 
 const OtherWorksSection = () => {
   const [data, setData] = useState<Artwork[]>([]);
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-    fetchArtworks(getRandomNumber(1, 100), 9)
+    fetchArtworks(
+      getRandomNumber(MIN_ARTWORK_ID, MAX_ARTWORK_ID),
+      ARTWORK_COUNT,
+    )
       .then((data: { data: Artwork[] }) => {
         setData(data.data);
         setLoader(true);
@@ -20,12 +29,6 @@ const OtherWorksSection = () => {
         console.log(e);
       });
   }, []);
-
-  const getRandomNumber = (min: number, max: number): number => {
-    const array = new Uint32Array(1);
-    window.crypto.getRandomValues(array);
-    return min + (array[0] % (max - min + 1));
-  };
 
   return (
     <div className="other-works">

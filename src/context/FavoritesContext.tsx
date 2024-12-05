@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { Artwork } from "../constants/interfaces";
-import { LOCAL_STORAGE_KEY } from "../constants/nameKeys";
+import { Artwork } from "../types/interfaces";
+import { LOCAL_STORAGE_KEY } from "../constants/constant";
 
 interface FavoritesContextType {
   favorites: Artwork[];
