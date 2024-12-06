@@ -1,7 +1,7 @@
 import React from "react";
 import { Artwork } from "../../types/interfaces";
 import bookmark from "../../assets/bookmark.svg";
-import useFavoriteToggle from "../../utils/useFavoriteToggle";
+import useFavoriteToggle from "../../hooks/useFavoriteToggle";
 import "./bookmark.css";
 
 const Bookmark: React.FC<{ art: Artwork }> = ({ art }) => {

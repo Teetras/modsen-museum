@@ -3,7 +3,7 @@ import { Artwork } from "../../types/interfaces";
 import "./miniCard.css";
 import Bookmark from "../bookmark/ButtonFavorite";
 import ArtCardInfo from "../ArtCardInfo/ArtCardInfo";
-import useArtworkImage from "../../utils/useArtworkImage";
+import useArtworkImage from "../../api/useArtworkImage";
 import { ART_URL } from "../../constants/constant";
 
 const MiniCard: React.FC<{ art: Artwork }> = ({ art }) => {

@@ -3,7 +3,7 @@ import React, { useMemo, useState } from "react";
 import Bookmark from "../bookmark/ButtonFavorite";
 import ArtCardInfo from "../ArtCardInfo/ArtCardInfo";
 import "./galleryCard.css";
-import useArtworkImage from "../../utils/useArtworkImage";
+import useArtworkImage from "../../api/useArtworkImage";
 import { ART_URL, GALLERY_TEXTS } from "../../constants/constant";
 import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import useOutsideClick from "../utils/useOutsideClick";
+import useOutsideClick from "../hooks/useOutsideClick";
 
 const TestComponent = ({ onClose }: { onClose: () => void }) => {
   const ref = useRef<HTMLDivElement>(null);

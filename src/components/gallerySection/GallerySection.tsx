@@ -4,7 +4,7 @@ import Title from "../title/Title";
 import GalleryArtCard from "../galleryCard/GalleryCard";
 import "./gallery.css";
 import PaginationComponent from "../pagination/PaginationComponent";
-import useFetchArtworks from "../../utils/useFetchArtworks";
+import useFetchArtworks from "../../hooks/useFetchArtworks";
 import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 
 const GallerySection: React.FC = () => {

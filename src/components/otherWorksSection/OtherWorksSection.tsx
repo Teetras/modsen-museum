@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Title from "../title/Title";
 import { Artwork } from "../../types/interfaces";
-import { fetchArtworks } from "../../utils/api";
+import { fetchArtworks } from "../../api/api";
 import MiniCard from "../miniCard/MiniCard";
 import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 import "./otherWorks.css";

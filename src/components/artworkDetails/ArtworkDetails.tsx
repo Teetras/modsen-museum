@@ -3,7 +3,7 @@ import { Artwork } from "../../types/interfaces";
 import Bookmark from "../bookmark/ButtonFavorite";
 import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 import "./artworkDetails.css";
-import useArtworkImage from "../../utils/useArtworkImage";
+import useArtworkImage from "../../api/useArtworkImage";
 import { DEFAULT_TEXTS } from "../../constants/constant";
 
 const ArtworkDetails: React.FC<{ art: Artwork }> = ({ art }) => {

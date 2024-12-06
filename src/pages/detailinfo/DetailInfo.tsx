@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchArtById } from "../../utils/api";
+import { fetchArtById } from "../../api/api";
 import "./detailInfo.css";
 import ArtworkDetails from "../../components/artworkDetails/ArtworkDetails";
 import { Artwork } from "../../types/interfaces";
