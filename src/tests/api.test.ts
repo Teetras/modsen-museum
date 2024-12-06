@@ -1,10 +1,10 @@
 import {
   fetchArtworks,
-  fechArtByText,
+  fetchArtByText,
   fetchArtById,
   checkFileExists,
-} from "./api";
-import { ResponseApi, Artwork, Pagination } from "../constants/interfaces";
+} from "../utils/api";
+import { ResponseApi, Artwork, Pagination } from "../types/interfaces";
 
 global.fetch = jest.fn();
 
@@ -64,7 +64,7 @@ describe("Art API Functions", () => {
       json: jest.fn().mockResolvedValueOnce(mockResponse),
     });
 
-    const result = await fechArtByText("test");
+    const result = await fetchArtByText("test");
     expect(result).toEqual(mockResponse);
     expect(fetch).toHaveBeenCalledWith(
       "https://api.artic.edu/api/v1/artworks/search?q=test&limit=10&fields=id,title,image_id,artist_title,is_on_view",
@@ -74,7 +74,7 @@ describe("Art API Functions", () => {
   test("fechArtByText throws an error on failure", async () => {
     (fetch as jest.Mock).mockResolvedValueOnce({ ok: false });
 
-    await expect(fechArtByText("test")).rejects.toThrow(
+    await expect(fetchArtByText("test")).rejects.toThrow(
       "Network response was not ok",
     );
   });

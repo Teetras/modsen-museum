@@ -1,3 +1,5 @@
+@import "../../constants/variables.css";
+
 .title-box {
     max-width: 308px;
     margin: auto;
@@ -8,6 +10,8 @@
 }
 
 .text {
+  font-family: var(--font-family);
+
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -16,6 +20,8 @@
 }
 
 .title {
+  font-family: var(--font-family);
+
     font-size: 32px;
     font-weight: 400;
     line-height: 40px;

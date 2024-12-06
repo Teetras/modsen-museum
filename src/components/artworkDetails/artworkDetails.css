@@ -1,141 +1,192 @@
- .fullcard {
+@import "../../constants/variables.css";
+
+.fullcard {
   display: flex;
   align-items: center;
   font-weight: normal;
-  color: rgba(57, 57, 57, 1);
 }
+
 .img-content {
   position: relative;
-  margin-right: 10%;
-
-
+  margin-right: var(--gap-medium);
 }
-.image-deteil  {
-  
+
+.image-detail {
   display: block;
   height: auto;
 }
+
 .info-content {
   display: flex;
   flex-direction: column;
-  height: 570px;
+  height: auto;
   width: 100%;
-
   justify-content: space-around;
+  gap: 64px;
 }
+
 .bookmark-detail {
   position: absolute;
   top: 10px;
   right: 10px;
   z-index: 10;
 }
-.own-info h2 {
-  font-size: 32px;
+
+.own-info {
+  font-family: var(--font-family);
+  max-width: 640px; 
+  width: 100%; 
+}
+
+.own-info h2,
+.overview h2 {
+  font-family: var(--font-family);
+  font-size: var(--font-size-large);
   font-weight: 400;
   line-height: 40px;
   text-align: left;
-  padding-bottom: 2%;
+  padding-bottom: var(--padding-small);
 }
-.author-deil {
-  font-family: Lexend Deca;
-  padding: 2% 0;
 
-  font-size: 24px;
+.author-detail-info {
+  font-family: var(--font-family);
+  padding: var(--padding-small) 0;
+  font-size: var(--font-size-medium);
   font-weight: 400;
-  line-height: 30px;
+  line-height: 20px;
   text-align: left;
-  color: rgba(224, 164, 73, 1);
+  color: var(--color-gold);
 }
-.age {
-  padding-bottom: 2%;
 
-  font-family: Lexend Deca;
-  font-size: 16px;
+.age {
+  padding-bottom: var(--padding-small);
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
   font-weight: 700;
   line-height: 20px;
   text-align: left;
-  color: rgba(57, 57, 57, 1);
+  color: var(--color-dark);
 }
-.owerview {
-  width: 480px;
-  height: 231px;
-  top: 586px;
-  left: 897px;
 
+.overview {
+  font-family: var(--font-family);
   display: flex;
   flex-direction: column;
-  gap: 32px;
-}
-.owerview h2 {
-  font-family: Lexend Deca;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 40px;
-  text-align: left;
+  gap: var(--gap-small);
+  max-width: 480px; 
+  width: 100%; 
 }
 
 .other-info {
-  font-family: Lexend Deca;
-
-  width: 480px;
-  height: 159px;
+  font-family: var(--font-family);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--gap-small);
 }
+
 .other-info p {
-  font-family: Lexend Deca;
-  font-size: 16px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
   font-weight: 400;
   line-height: 20px;
+  letter-spacing: 0.4px;
 }
-.other-info span {
-  font-family: Lexend Deca;
 
-  color: rgba(224, 164, 73, 1);
-} 
-@media (max-width: 1305px) {
-    .other-info {
-        width: 350px;
-        height: auto;
-      }
-    
-      .img-content {
-        margin-right: 8%;
-      
-      }
+.other-info span {
+  font-family: var(--font-family);
+  color: var(--color-gold);
 }
-@media screen and (max-width: 890px) {
+
+@media screen and (max-width: 992px) {
   .fullcard {
-    padding: 5% 0;
-   
-    flex-direction: column; 
+    padding: var(--padding-medium) 0;
+    flex-direction: column;
     align-items: center;
   }
-  
+
   .img-content {
     margin: 0;
-    width: 350px;
-
   }
-  .image-deteil {
-    width: 350px;
 
+  .image-detail {
+    max-height: 300px;
   }
+
   .info-content {
-    padding: 0 10px; 
-    width: 350px;
-    gap: 0;
+    padding:  10px;
   }
   .own-info h2,
-  .author-deil5
-  .age {
-    padding-left: 0px; 
-    padding-right: 0px;
+  .overview h2 {
+    font-size: var(--font-size-medium);
+    line-height: 30px;
+    padding-bottom: 0;
   }
-  .owerview {
-    width: 100%; 
-    height: 100%;
+
+  .author-detail-info {
+    font-size: var(--font-size-small);
+  }
+
+  .age {
+    font-size: var(--font-size-xsmall);
+  }
+
+  .overview {
+    width: 100%;
     gap: 0;
   }
+}
+
+@media (max-width: 768px) {
+  .fullcard {
+    padding: var(--padding-small);
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-detail {
+    max-height: 300px;
+  }
+
+  .bookmark-detail {
+    top: 5px;
+    right: 5px;
+  }
+  .author-detail-info {
+    font-size: var(--font-size-xsmall);
+  }
+
+  .age {
+    font-size: var(--font-size-xsmall);
+  }
+
+  .overview {
+    width: 100%;
+  }
+
+  .info-content {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fullcard {
+    padding: var(--padding-small);
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-content {
+    margin: 0;
+  }
+
+  .info-content {
+    padding: 0 10px;
+    width: 100%;
+  }
+
+  .overview {
+    width: 100%;
+    gap: 0;
+  }
+ 
 }

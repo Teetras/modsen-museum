@@ -1,4 +1,4 @@
-import { searchSchema } from "./validation";
+import { searchSchema } from "../constants/validation";
 
 describe("searchSchema", () => {
   it("should be valid for a valid search query", async () => {

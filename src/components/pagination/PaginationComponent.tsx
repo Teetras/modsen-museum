@@ -1,55 +1,42 @@
-// Pagination.tsx
 import React from "react";
-import { calculatePaginationList } from "../../utils/paginationUtils";
-import { PaginationProps } from "../../constants/interfaces";
+import {
+  calculatePaginationList,
+  nextPage,
+  prevPage,
+} from "../../utils/paginationUtils";
+import { PaginationProps } from "../../types/interfaces";
+import PaginationButton from "./paginationButton/PaginationButton";
 
 const PaginationComponent: React.FC<PaginationProps> = ({
-  pagination,
+  pagination: { total_pages, current_page },
   setPage,
 }) => {
-  const paginationList = calculatePaginationList(
-    pagination.total_pages,
-    pagination.current_page,
-  );
-
-  const nextPage = () => {
-    if (pagination.current_page < pagination.total_pages) {
-      setPage(pagination.current_page + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (pagination.current_page > 1) {
-      setPage(pagination.current_page - 1);
-    }
-  };
+  const paginationList = calculatePaginationList(total_pages, current_page);
 
   return (
-    <div className="button-pagination">
-      {pagination.current_page > 1 && (
-        <button onClick={prevPage} className="arrow-btn">
+    <nav className="button-pagination" aria-label="Pagination Navigation">
+      {current_page > 1 && (
+        <PaginationButton onClick={() => setPage(prevPage(current_page))}>
           &lt;
-        </button>
+        </PaginationButton>
       )}
       {paginationList.map((pag) => (
-        <button
+        <PaginationButton
           key={pag}
           onClick={() => setPage(pag)}
-          className={
-            pag === pagination.current_page ? "active-btn" : "page-btn"
-          }
+          isActive={pag === current_page}
+          ariaCurrent={pag === current_page ? "page" : undefined}
         >
           {pag}
-        </button>
+        </PaginationButton>
       ))}
-      <button
-        onClick={nextPage}
-        className="arrow-btn"
-        disabled={pagination.current_page === pagination.total_pages}
+      <PaginationButton
+        onClick={() => setPage(nextPage(current_page, total_pages))}
+        disabled={current_page === total_pages}
       >
         &gt;
-      </button>
-    </div>
+      </PaginationButton>
+    </nav>
   );
 };
 

@@ -1,0 +1,29 @@
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    font-family: var(--font-family);
+}
+
+.not-found h1 {
+    font-size: var(--font-size-xlarge);
+    color: var(--color-dark);
+}
+
+.not-found p {
+    font-size: var(--font-size-medium);
+    color: var(--color-dark);
+}
+
+@media (max-width: 768px) {
+    .not-found h1 {
+        font-size: var(--font-size-large-medium);
+    }
+
+    .not-found p {
+        font-size: var(--font-size-small);
+    }
+}

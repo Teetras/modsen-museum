@@ -1,5 +1,6 @@
 import React from "react";
+import "./loadingIndicator.css";
 const LoadingIndicator = () => {
-  return <div>Loading data...</div>;
+  return <span className="loader"></span>;
 };
 export default LoadingIndicator;

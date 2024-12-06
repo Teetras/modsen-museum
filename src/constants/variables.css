@@ -1,0 +1,22 @@
+:root {
+    --color-dark: rgba(57, 57, 57, 1);
+    --color-gold: rgba(224, 164, 73, 1);
+    --color-white: rgba(255, 255, 255, 1);
+
+    --font-family: 'Lexend Deca', sans-serif;
+
+    --font-size-large: 32px;
+    --font-size-xlarge: 64px; 
+    --font-size-medium: 24px; 
+    --font-size-large-medium: 48px;
+    --font-size-small: 16px;
+    --font-size-xsmall: 14px;
+
+    --gap-small: 16px; 
+    --gap-medium: 32px; 
+    
+    --padding-small: 16px; 
+    --padding-medium: 40px; 
+
+    --height-card: 514px; 
+  }

@@ -1,26 +1,40 @@
+@import "../../constants/variables.css";
+
 .gallery-card {
   width: 387px;
   height: 514px;
   gap: 0px;
-  border: 1px;
+  margin: auto;
+  position: relative;
 }
 
-.image-container,
-.image-gallery {
-  width: 387px;
+.image-container {
+  width: 100%;
   height: 444px;
-  gap: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
 }
+
+.image-gallery {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .info-overlay {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: absolute;
+  bottom: 0;
   box-sizing: border-box;
   width: 334px;
   height: 132px;
   padding: 20px;
-  margin: auto;
-  margin-top: -66px;
-  background: #ffffff;
+  background: var(--color-white);
 }

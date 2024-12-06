@@ -1,4 +1,4 @@
-import { sortArray } from "./sortUtil";
+import { sortArray } from "../utils/sortUtil";
 
 describe("sortArray", () => {
   it("should sort an array of objects by the specified key", () => {

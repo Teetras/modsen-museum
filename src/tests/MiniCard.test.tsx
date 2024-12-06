@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import MiniCard from "./MiniCard";
-import { Artwork } from "../../constants/interfaces";
+import MiniCard from "../components/miniCard/MiniCard";
+import { Artwork } from "../types/interfaces";
 interface MockButtonFavoriteProps {
   art: Artwork;
 }

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import useOutsideClick from "../../utils/customHook";
+import useOutsideClick from "../../utils/useOutsideClick";
 import "./burgerMenu.css";
 
 const BurgerMenu: React.FC = () => {

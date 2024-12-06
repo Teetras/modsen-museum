@@ -55,3 +55,24 @@ export interface SearchResultsProps {
   setSortField: (field: string) => void;
   filteredItems: Artwork[];
 }
+export interface PaginationButtonProps {
+  onClick: () => void;
+  children: React.ReactNode;
+  isActive?: boolean;
+  disabled?: boolean;
+  ariaCurrent?:
+    | "true"
+    | "false"
+    | "page"
+    | "step"
+    | "location"
+    | "date"
+    | "time"
+    | undefined;
+}
+export interface FavoritesContextType {
+  favorites: Artwork[];
+  addFavorite: (art: Artwork) => void;
+  removeFavorite: (artId: number) => void;
+  isArtFavorite: (art: Artwork) => boolean;
+}

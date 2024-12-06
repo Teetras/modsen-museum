@@ -1,6 +1,6 @@
 import React from "react";
 import "./title.css";
-import { TitleProps } from "../../constants/interfaces";
+import { TitleProps } from "../../types/interfaces";
 
 const Title: React.FC<TitleProps> = ({ text, title }) => {
   return (

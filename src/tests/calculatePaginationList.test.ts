@@ -1,4 +1,4 @@
-import { calculatePaginationList } from "./paginationUtils";
+import { calculatePaginationList } from "../utils/paginationUtils";
 
 describe("calculatePaginationList", () => {
   it("should return [1] when total_pages is 0", () => {
