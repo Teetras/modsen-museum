@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { Artwork, Pagination } from "../types/interfaces";
-import { fetchArtworks } from "../utils/api";
+import { fetchArtworks } from "../api/api";
 
 const useFetchArtworks = (page: number, limit: number) => {
   const [data, setData] = useState<Artwork[]>([]);

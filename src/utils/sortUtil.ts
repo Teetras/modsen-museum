@@ -1,4 +1,6 @@
-export const sortArray = (array: any[], key: string) => {
+import { Artwork } from "../types/interfaces";
+
+export const sortArray = (array: Artwork[], key: keyof Artwork) => {
   return [...array].sort((a, b) => {
     const aValue = a[key];
     const bValue = b[key];

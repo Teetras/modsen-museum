@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import useDebounce from "../../utils/useDebounce";
+import useDebounce from "../../hooks/useDebounce";
 import MiniCard from "../miniCard/MiniCard";
 import iconSearch from "../../assets/search.svg";
 import "./searchSection.css";
@@ -7,7 +7,7 @@ import { Artwork } from "../../types/interfaces";
 import { handleSearch, updateFilteredItemsList } from "../../utils/searchUtils";
 
 const SearchSection: React.FC = () => {
-  const [sortField, setSortField] = useState<string>("title");
+  const [sortField, setSortField] = useState<keyof Artwork>("title");
   const [query, setQuery] = useState<string>("");
   const [items, setItems] = useState<Artwork[]>([]);
   const [filteredItems, setFilteredItems] = useState<Artwork[]>([]);
@@ -44,9 +44,8 @@ const SearchSection: React.FC = () => {
   };
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSortField(e.target.value);
+    setSortField(e.target.value as keyof Artwork);
   };
-
   return (
     <div className="search-section">
       <div className="title-container">
