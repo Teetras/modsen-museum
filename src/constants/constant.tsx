@@ -21,6 +21,7 @@ export const ARTWORK_BY_ID_URL = (id: string) =>
   `${API_BASE_URL}/${id}?fields=id,title,image_id,artist_title,gallery_title,artist_display,dimensions,date_display,is_on_view,credit_line,place_of_origin`;
 export const ARTWORK_IMAGE_URL = (artId: string) =>
   `https://www.artic.edu/iiif/2/${artId}/full/400,/0/default.jpg`;
+
 // Routes
 export const routes = [
   { path: "/", element: <Home /> },
@@ -49,5 +50,9 @@ export const FAVORITES_TEXTS = {
 export const GALLERY_TEXTS = {
   altImage: "Gallery Image",
 };
+
 // Utility Function for ART URL
 export const ART_URL = (id: string) => `/art/${id}`;
+
+export const TRUNCATE_TITLE_LENGTH = 20;
+export const TRUNCATE_AUTHOR_LENGTH = 18;

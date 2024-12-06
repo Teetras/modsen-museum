@@ -1,11 +1,10 @@
-@import "../../constants/variables.css";
 
 .fullcard {
   display: flex;
   align-items: center;
   font-weight: normal;
+  padding: 20px 0; 
 }
-
 .img-content {
   position: relative;
   margin-right: var(--gap-medium);

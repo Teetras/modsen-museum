@@ -23,7 +23,9 @@ const GallerySection: React.FC = () => {
 
       <div className="gallery-container">
         {isLoading ? (
-          <LoadingIndicator />
+          <section className="loading-section">
+            <LoadingIndicator />
+          </section>
         ) : (
           <div className="cards-container mobile">{renderedArtworks}</div>
         )}
