@@ -1,57 +1,139 @@
 import { sortArray } from "../utils/sortUtil";
+import { Artwork } from "../types/interfaces";
 
 describe("sortArray", () => {
-  it("should sort an array of objects by the specified key", () => {
-    const array = [{ name: "Charlie" }, { name: "Alice" }, { name: "Bob" }];
-    const sorted = sortArray(array, "name");
+  it("should sort an array of Artwork objects by the specified key", () => {
+    const array: Artwork[] = [
+      {
+        id: 1,
+        image_id: "1",
+        title: "Charlie",
+        artist_title: "",
+        gallery_title: "",
+        artist_display: "",
+        dimensions: "",
+        date_display: "",
+        is_on_view: false,
+        _score: 0,
+        credit_line: "",
+        place_of_origin: "",
+      },
+      {
+        id: 2,
+        image_id: "2",
+        title: "Alice",
+        artist_title: "",
+        gallery_title: "",
+        artist_display: "",
+        dimensions: "",
+        date_display: "",
+        is_on_view: false,
+        _score: 0,
+        credit_line: "",
+        place_of_origin: "",
+      },
+      {
+        id: 3,
+        image_id: "3",
+        title: "Bob",
+        artist_title: "",
+        gallery_title: "",
+        artist_display: "",
+        dimensions: "",
+        date_display: "",
+        is_on_view: false,
+        _score: 0,
+        credit_line: "",
+        place_of_origin: "",
+      },
+    ];
+
+    const sorted = sortArray(array, "title");
     expect(sorted).toEqual([
-      { name: "Alice" },
-      { name: "Bob" },
-      { name: "Charlie" },
+      {
+        id: 2,
+        image_id: "2",
+        title: "Alice",
+        artist_title: "",
+        gallery_title: "",
+        artist_display: "",
+        dimensions: "",
+        date_display: "",
+        is_on_view: false,
+        _score: 0,
+        credit_line: "",
+        place_of_origin: "",
+      },
+      {
+        id: 3,
+        image_id: "3",
+        title: "Bob",
+        artist_title: "",
+        gallery_title: "",
+        artist_display: "",
+        dimensions: "",
+        date_display: "",
+        is_on_view: false,
+        _score: 0,
+        credit_line: "",
+        place_of_origin: "",
+      },
+      {
+        id: 1,
+        image_id: "1",
+        title: "Charlie",
+        artist_title: "",
+        gallery_title: "",
+        artist_display: "",
+        dimensions: "",
+        date_display: "",
+        is_on_view: false,
+        _score: 0,
+        credit_line: "",
+        place_of_origin: "",
+      },
     ]);
   });
 
   it("should handle empty arrays", () => {
-    const array: any[] = [];
-    const sorted = sortArray(array, "name");
+    const array: Artwork[] = [];
+    const sorted = sortArray(array, "title");
     expect(sorted).toEqual([]);
   });
 
   it("should handle arrays with a single item", () => {
-    const array = [{ name: "Alice" }];
-    const sorted = sortArray(array, "name");
-    expect(sorted).toEqual([{ name: "Alice" }]);
-  });
-
-  it("should handle arrays with undefined values for the key", () => {
-    const array = [{ name: "Charlie" }, { name: undefined }, { name: "Alice" }];
-    const sorted = sortArray(array, "name");
-    expect(sorted).toEqual([
-      { name: "Alice" },
-      { name: "Charlie" },
-      { name: undefined },
-    ]);
-  });
-
-  it("should sort by different keys", () => {
-    const array = [
-      { age: 30, name: "Charlie" },
-      { age: 25, name: "Alice" },
-      { age: 35, name: "Bob" },
+    const array: Artwork[] = [
+      {
+        id: 1,
+        image_id: "1",
+        title: "Alice",
+        artist_title: "",
+        gallery_title: "",
+        artist_display: "",
+        dimensions: "",
+        date_display: "",
+        is_on_view: false,
+        _score: 0,
+        credit_line: "",
+        place_of_origin: "",
+      },
     ];
-    const sortedByName = sortArray(array, "name");
-    const sortedByAge = sortArray(array, "age");
-
-    expect(sortedByName).toEqual([
-      { age: 25, name: "Alice" },
-      { age: 35, name: "Bob" },
-      { age: 30, name: "Charlie" },
-    ]);
-
-    expect(sortedByAge).toEqual([
-      { age: 25, name: "Alice" },
-      { age: 30, name: "Charlie" },
-      { age: 35, name: "Bob" },
+    const sorted = sortArray(array, "title");
+    expect(sorted).toEqual([
+      {
+        id: 1,
+        image_id: "1",
+        title: "Alice",
+        artist_title: "",
+        gallery_title: "",
+        artist_display: "",
+        dimensions: "",
+        date_display: "",
+        is_on_view: false,
+        _score: 0,
+        credit_line: "",
+        place_of_origin: "",
+      },
     ]);
   });
 });

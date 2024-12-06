@@ -1,6 +1,5 @@
-import { fetchArtByText } from "../utils/api";
+import { fetchArtByText } from "../api/api";
 import { searchSchema } from "../constants/validation";
-
 import { sortArray } from "../utils/sortUtil";
 import * as yup from "yup";
 import {
@@ -8,9 +7,10 @@ import {
   updateFilteredItems,
   validateSearchQuery,
 } from "../utils/searchUtils";
+import { Artwork } from "../types/interfaces";
 
 jest.mock("../../utils/api", () => ({
-  fechArtByText: jest.fn(),
+  fetchArtByText: jest.fn(),
 }));
 
 jest.mock("../../utils/sortUtil", () => ({
@@ -34,7 +34,22 @@ describe("searchUtils", () => {
     });
 
     it("should fetch items and update state correctly", async () => {
-      const mockData = [{ id: 1, title: "Art 1" }];
+      const mockData: Artwork[] = [
+        {
+          id: 1,
+          image_id: "1",
+          title: "Art 1",
+          artist_title: "",
+          gallery_title: "",
+          artist_display: "",
+          dimensions: "",
+          date_display: "",
+          is_on_view: false,
+          _score: 0,
+          credit_line: "",
+          place_of_origin: "",
+        },
+      ];
       (fetchArtByText as jest.Mock).mockResolvedValue({ data: mockData });
       const debouncedQuery = "art";
 
@@ -62,7 +77,7 @@ describe("searchUtils", () => {
         debouncedQuery,
         setItems,
         setErrorMsg,
-        "title",
+        "title", // Используйте 'title' как ключ
         setFilteredItems,
       );
 
@@ -80,17 +95,69 @@ describe("searchUtils", () => {
     });
 
     it("should sort and set filtered items", () => {
-      const data = [
-        { id: 2, title: "Art 2" },
-        { id: 1, title: "Art 1" },
+      const data: Artwork[] = [
+        {
+          id: 2,
+          image_id: "2",
+          title: "Art 2",
+          artist_title: "",
+          gallery_title: "",
+          artist_display: "",
+          dimensions: "",
+          date_display: "",
+          is_on_view: false,
+          _score: 0,
+          credit_line: "",
+          place_of_origin: "",
+        },
+        {
+          id: 1,
+          image_id: "1",
+          title: "Art 1",
+          artist_title: "",
+          gallery_title: "",
+          artist_display: "",
+          dimensions: "",
+          date_display: "",
+          is_on_view: false,
+          _score: 0,
+          credit_line: "",
+          place_of_origin: "",
+        },
       ];
-      const sortedData = [
-        { id: 1, title: "Art 1" },
-        { id: 2, title: "Art 2" },
+      const sortedData: Artwork[] = [
+        {
+          id: 1,
+          image_id: "1",
+          title: "Art 1",
+          artist_title: "",
+          gallery_title: "",
+          artist_display: "",
+          dimensions: "",
+          date_display: "",
+          is_on_view: false,
+          _score: 0,
+          credit_line: "",
+          place_of_origin: "",
+        },
+        {
+          id: 2,
+          image_id: "2",
+          title: "Art 2",
+          artist_title: "",
+          gallery_title: "",
+          artist_display: "",
+          dimensions: "",
+          date_display: "",
+          is_on_view: false,
+          _score: 0,
+          credit_line: "",
+          place_of_origin: "",
+        },
       ];
       (sortArray as jest.Mock).mockReturnValue(sortedData);
 
-      updateFilteredItems(data, "title", setFilteredItems);
+      updateFilteredItems(data, "title" as keyof Artwork, setFilteredItems); // Приведение типа
 
       expect(sortArray).toHaveBeenCalledWith(data, "title");
       expect(setFilteredItems).toHaveBeenCalledWith(sortedData);

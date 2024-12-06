@@ -3,7 +3,7 @@ import {
   fetchArtByText,
   fetchArtById,
   checkFileExists,
-} from "../utils/api";
+} from "../api/api";
 import { ResponseApi, Artwork, Pagination } from "../types/interfaces";
 
 global.fetch = jest.fn();
