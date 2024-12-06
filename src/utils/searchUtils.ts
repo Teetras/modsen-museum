@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { fechArtByText } from "./api";
+import { fetchArtByText } from "./api";
 import { sortArray } from "./sortUtil";
 import { searchSchema } from "../constants/validation";
 import { Artwork } from "../types/interfaces";
@@ -13,7 +13,7 @@ export const fetchItems = async (
 ) => {
   try {
     setErrorMsg("");
-    const response = await fechArtByText(debouncedQuery);
+    const response = await fetchArtByText(debouncedQuery);
     const data = response.data;
     setItems(data);
     updateFilteredItems(data, sortField, setFilteredItems);

@@ -4,7 +4,7 @@ import Bookmark from "../bookmark/ButtonFavorite";
 import ArtCardInfo from "../ArtCardInfo/ArtCardInfo";
 import "./galleryCard.css";
 import useArtworkImage from "../../utils/useArtworkImage";
-import { ART_URL } from "../../constants/constant";
+import { ART_URL, GALLERY_TEXTS } from "../../constants/constant";
 import LoadingIndicator from "../loadingIndicator/LoadingIndicator";
 
 const GalleryArtCard: React.FC<{ art: Artwork }> = ({ art }) => {
@@ -20,7 +20,7 @@ const GalleryArtCard: React.FC<{ art: Artwork }> = ({ art }) => {
           <img
             className="image-gallery"
             src={imgUrl}
-            alt={art.title || "Gallery Image"}
+            alt={art.title || GALLERY_TEXTS.altImage}
             onLoad={() => setLoading(false)}
             onError={() => setLoading(false)}
           />

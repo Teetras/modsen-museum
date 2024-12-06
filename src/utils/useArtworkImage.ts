@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import defaultImageUrl from "../assets/Group 2.svg";
 import { checkFileExists } from "./api";
+import { ARTWORK_IMAGE_URL } from "../constants/constant";
 
 const useArtworkImage = (artId: string | undefined) => {
   const [imgUrl, setImgUrl] = useState<string>(defaultImageUrl);
@@ -8,7 +9,7 @@ const useArtworkImage = (artId: string | undefined) => {
   useEffect(() => {
     if (artId) {
       const fetchImage = async () => {
-        const imageUrl = `https://www.artic.edu/iiif/2/${artId}/full/400,/0/default.jpg`;
+        const imageUrl = ARTWORK_IMAGE_URL(artId);
         const exists = await checkFileExists(imageUrl);
 
         if (exists) {

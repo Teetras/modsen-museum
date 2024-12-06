@@ -1,4 +1,4 @@
-import { fechArtByText } from "../utils/api";
+import { fetchArtByText } from "../utils/api";
 import { searchSchema } from "../constants/validation";
 
 import { sortArray } from "../utils/sortUtil";
@@ -35,7 +35,7 @@ describe("searchUtils", () => {
 
     it("should fetch items and update state correctly", async () => {
       const mockData = [{ id: 1, title: "Art 1" }];
-      (fechArtByText as jest.Mock).mockResolvedValue({ data: mockData });
+      (fetchArtByText as jest.Mock).mockResolvedValue({ data: mockData });
       const debouncedQuery = "art";
 
       await fetchItems(
@@ -47,13 +47,13 @@ describe("searchUtils", () => {
       );
 
       expect(setErrorMsg).toHaveBeenCalledWith("");
-      expect(fechArtByText).toHaveBeenCalledWith(debouncedQuery);
+      expect(fetchArtByText).toHaveBeenCalledWith(debouncedQuery);
       expect(setItems).toHaveBeenCalledWith(mockData);
       expect(setFilteredItems).toHaveBeenCalled();
     });
 
     it("should handle errors during fetch", async () => {
-      (fechArtByText as jest.Mock).mockRejectedValue(
+      (fetchArtByText as jest.Mock).mockRejectedValue(
         new Error("Network error"),
       );
       const debouncedQuery = "art";

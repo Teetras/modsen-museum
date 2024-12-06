@@ -5,6 +5,7 @@ import bookmark from "../../assets/Vector.svg";
 import "./favorites.css";
 import Title from "../../components/title/Title";
 import { useFavorites } from "../../context/FavoritesContext";
+import { FAVORITES_TEXTS } from "../../constants/constant";
 
 export default function Favorites() {
   const { favorites } = useFavorites();
@@ -23,17 +24,18 @@ export default function Favorites() {
       <div className="fav-content">
         <div className="title-container">
           <h1 className="main-title">
-            Here are your <br />
+            {FAVORITES_TEXTS.header}
+            <br />
             <span>
               <img className="bookmark-img" src={bookmark} alt="bookmark" />
               {" Favorites"}
             </span>
           </h1>
         </div>
-        <Title text="Saved by you" title="Your favorites list" />
+        <Title text={FAVORITES_TEXTS.subtitle} title="Your favorites list" />
         <div className="mini-cards-box">
           {favorites.length === 0 ? (
-            <p>You have no favorite artworks.</p>
+            <p>{FAVORITES_TEXTS.noFavorites}</p>
           ) : (
             favorites.map((art) => <MiniCard key={art.id} art={art} />)
           )}
